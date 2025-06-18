@@ -1,452 +1,886 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>河南旅游 - 我的家乡</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#D4AF37', // 金色主色调
-            secondary: '#8B4513', // 棕色辅助色
-            accent: '#E84A27', // 红色强调色
-            light: '#F5F5DC', // 米白色背景
-            dark: '#3C3C3C', // 深灰色文本
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        },
-      }
-    }
-  </script>
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .text-shadow {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
-      .typing-cursor {
-        border-right: 0.15em solid;
-        animation: typing-cursor 0.7s infinite;
-      }
-      .parallax-bg {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-      .mask {
-        background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-      }
-      .fade-in {
-        animation: fadeIn 2s ease-in-out;
-      }
-      .slide-up {
-        animation: slideUp 1.5s ease-out;
-      }
-      .scale-in {
-        animation: scaleIn 1s ease-out;
-      }
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>河南老君山 - 人间仙境</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#FF7D00',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                        mountain: '#2C3E50',
+                        cloud: '#ECF0F1',
+                        forest: '#27AE60'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
 
-    @keyframes typing-cursor {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+    </script>
     
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    
-    @keyframes scaleIn {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    
-    /* 平滑滚动 */
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* 禁止选择文本 */
-    .no-select {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    
-    /* 隐藏滚动条但保留功能 */
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .animate-float-delay-1 {
+                animation: float 6s ease-in-out 1s infinite;
+            }
+            .animate-float-delay-2 {
+                animation: float 6s ease-in-out 2s infinite;
+            }
+            .animate-fade-in {
+                animation: fadeIn 1s ease-in forwards;
+            }
+            .animate-slide-up {
+                animation: slideUp 0.8s ease-out forwards;
+            }
+            .animate-scale {
+                animation: scale 0.5s ease-out forwards;
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes scale {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        /* 全局样式 */
+        body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(22, 93, 255, 0.5);
+            border-radius: 2px;
+        }
+        
+        /* 页面过渡动画 */
+        .page-transition {
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.8s ease;
+        }
+        
+        /* 背景视差效果 */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* 照片墙动画 */
+        .photo-grid img {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .photo-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
-<body class="bg-light text-dark font-sans overflow-x-hidden">
-  <!-- 音频播放器 -->
-  <div id="audio-control" class="fixed top-4 right-4 z-50 flex items-center justify-center w-12 h-12 bg-primary/80 rounded-full cursor-pointer shadow-lg transition-all duration-300 hover:scale-110">
-    <i id="audio-icon" class="fa fa-music text-white text-xl"></i>
-    <audio id="bg-music" loop>
-      <source src="https://music.163.com/song/media/outer/url?id=1430120741.mp3" type="audio/mpeg">
+<body class="bg-light text-dark font-sans">
+    <!-- 音频播放器 -->
+    <audio id="bgMusic" loop onloadedmetadata="this.currentTime=55">
+        <source src="http://music.163.com/song/media/outer/url?id=504264942.mp3" type="audio/mpeg">
     </audio>
-  </div>
-
-  <!-- 页面导航指示器 -->
-  <div class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center space-y-3">
-    <a href="#cover" class="w-3 h-3 rounded-full bg-white/50 hover:bg-primary transition-all"></a>
-    <a href="#location" class="w-3 h-3 rounded-full bg-white/50 hover:bg-primary transition-all"></a>
-    <a href="#scenery" class="w-3 h-3 rounded-full bg-white/50 hover:bg-primary transition-all"></a>
-    <a href="#culture" class="w-3 h-3 rounded-full bg-white/50 hover:bg-primary transition-all"></a>
-    <a href="#ending" class="w-3 h-3 rounded-full bg-white/50 hover:bg-primary transition-all"></a>
-  </div>
-
-  <!-- 封面欢迎页 -->
-  <section id="cover" class="relative w-full h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="https://www.sqrb.com.cn/pic/2025-05/20/226556_f3cca911-3245-4297-8f84-1134afb9fd98.jpg" alt="河南风景" class="w-full h-full object-cover">
-      <div class="absolute inset-0 mask z-10"></div>
-    </div>
-    
-    <div class="container mx-auto px-4 z-20 text-center">
-      <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-white text-shadow mb-6 opacity-0 fade-in" style="animation-delay: 0.5s;">
-        河南旅游
-      </h1>
-      <p id="typing-text" class="text-[clamp(1.2rem,4vw,2rem)] text-white text-shadow mb-12 max-w-2xl mx-auto opacity-0 fade-in" style="animation-delay: 1.5s;">
-        <span class="typing-cursor"></span>
-      </p>
-      <div class="opacity-0 fade-in" style="animation-delay: 2.5s;">
-        <a href="#location" class="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105">
-          探索河南 <i class="fa fa-arrow-down ml-2"></i>
-        </a>
-      </div>
-    </div>
-    
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-      <i class="fa fa-angle-down text-white text-3xl"></i>
-    </div>
-  </section>
-
-  <!-- 地理位置介绍 -->
-  <section id="location" class="relative w-full h-screen flex items-center justify-center bg-dark overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="https://picsum.photos/id/1016/1200/800" alt="河南地图" class="w-full h-full object-cover opacity-40">
-    </div>
-    
-    <div class="container mx-auto px-4 z-20">
-      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-10 shadow-2xl">
-        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white text-shadow mb-8 text-center slide-up">
-          <span class="text-primary">地理位置</span>
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div class="space-y-6 slide-up" style="animation-delay: 0.3s;">
-            <p class="text-white/90 text-lg md:text-xl leading-relaxed">
-              河南，古称中原，地处中国中东部，黄河中下游，是中华文明的重要发源地之一。
-            </p>
-            <p class="text-white/90 text-lg md:text-xl leading-relaxed">
-              河南总面积约16.7万平方公里，辖17个地级市，省会为郑州。河南是中国重要的交通枢纽和经济大省。
-            </p>
-            <p class="text-white/90 text-lg md:text-xl leading-relaxed">
-              河南历史悠久，文化灿烂，拥有洛阳、开封、安阳、郑州等古都，是中华民族与华夏文明的发源地。
-            </p>
-          </div>
-          
-          <div class="relative rounded-xl overflow-hidden shadow-xl scale-in" style="animation-delay: 0.6s;">
-            <div class="aspect-video bg-white/10 flex items-center justify-center">
-              <!-- 地图占位 -->
-              <img src="https://pic.rmb.bdstatic.com/bjh/bb818e857102/241228/f4594f34aafea23ce4fd7770b675e064.jpeg?for=bg" alt="河南地理位置" class="w-full h-full object-cover">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-primary/80 text-white text-center p-4 rounded-lg">
-                  <p class="font-bold">河南地图</p>
+    <audio id="zSound" preload="auto">
+        <source src="http://music.163.com/song/media/outer/url?id=5254640.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="windSound" preload="auto">
+        <source src="http://music.163.com/song/media/outer/url?id=1886200116.mp3" type="audio/mpeg">
+    </audio>
+    <!-- 页面容器 -->
+    <div id="app" class="relative w-full min-h-screen">
+        <!-- 导航栏 -->
+        <nav id="mainNav" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="text-white font-bold text-2xl text-shadow">
+                    <span class="text-secondary">老君山</span>仙境
                 </div>
-              </div>
+                
+                <!-- 菜单按钮 -->
+                <button id="menuBtn" class="text-white text-2xl focus:outline-none">
+                    <i class="fa fa-bars"></i>
+                </button>
             </div>
-          </div>
-        </div>
-      </div>
+            
+            <!-- 二级菜单 -->
+            <div id="subMenu" class="fixed inset-0 bg-dark/90 z-50 flex flex-col items-center justify-center transform translate-x-full transition-transform duration-500">
+                <button id="closeMenu" class="absolute top-6 right-6 text-white text-2xl">
+                    <i class="fa fa-times"></i>
+                </button>
+                
+                <div class="text-center space-y-8">
+                    <h2 class="text-white text-3xl font-bold">景点导览</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                        <a href="#scenic1" class="scenic-link bg-primary/80 hover:bg-primary text-white p-4 rounded-lg transition-all duration-300">
+                            <i class="fa fa-mountain text-xl mb-2"></i>
+                            <p>金顶道观群</p>
+                        </a>
+                        <a href="#scenic2" class="scenic-link bg-secondary/80 hover:bg-secondary text-white p-4 rounded-lg transition-all duration-300">
+                            <i class="fa fa-tree text-xl mb-2"></i>
+                            <p>十里画屏</p>
+                        </a>
+                        <a href="#scenic3" class="scenic-link bg-forest/80 hover:bg-forest text-white p-4 rounded-lg transition-all duration-300">
+                            <i class="fa fa-pagelines text-xl mb-2"></i>
+                            <p>云景天路</p>
+                        </a>
+                        <a href="#scenic4" class="scenic-link bg-mountain/80 hover:bg-mountain text-white p-4 rounded-lg transition-all duration-300">
+                            <i class="fa fa-snowflake-o text-xl mb-2"></i>
+                            <p>马鬃岭</p>
+                        </a>
+                        <a href="#scenic5" class="scenic-link bg-cloud/80 hover:bg-cloud text-dark p-4 rounded-lg transition-all duration-300">
+                            <i class="fa fa-tint text-xl mb-2"></i>
+                            <p>舍身崖</p>
+                        </a>
+                        <a href="#scenic6" class="scenic-link bg-primary/80 hover:bg-primary text-white p-4 rounded-lg transition-all duration-300">
+                            <i class="fa fa-map-o text-xl mb-2"></i>
+                            <p>峰林烟岚</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- 音乐控制按钮 -->
+        <button id="musicToggle" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg z-40 transform transition-transform duration-300 hover:scale-110">
+            <i class="fa fa-music"></i>
+        </button>
+        
+        <!-- 下一页按钮 -->
+        <button id="nextPage" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-secondary/80 text-white flex items-center justify-center shadow-lg z-40 animate-bounce">
+            <i class="fa fa-chevron-down"></i>
+        </button>
+        
+        <!-- 页面1：欢迎页 -->
+        <section id="page1" class="relative h-screen w-full overflow-hidden bg-dark">
+            <div class="absolute inset-0 z-0">
+                <img src="https://qcloud.dpfile.com/pc/lSQu_XFztSTIGm_orw42ZKteBCG_ZSB0l_iwygC4uSqZCJcBAmuvpeV0dDPaOhRI.jpg" alt="老君山全景" class="w-full h-full object-cover opacity-70">
+                <div class="absolute inset-0 bg-gradient-to-b from-dark/40 to-dark/80"></div>
+            </div>
+            
+            <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+                <h1 class="text-[clamp(2.5rem,8vw,4rem)] font-bold text-white text-shadow-lg mb-4 opacity-0 animate-fade-in" style="animation-delay: 0.5s">
+                    河南老君山
+                </h1>
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-white text-shadow max-w-2xl mx-auto mb-8 opacity-0" style="animation: fadeIn 1s ease-in forwards 1s, float 6s ease-in-out infinite 2s">
+                    天下无双圣境，世界第一仙山
+                </p>
+                <div class="opacity-0 animate-slide-up" style="animation-delay: 1.5s">
+                    <button id="enterBtn" class="px-8 py-3 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        开始探索 <i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 装饰性元素 -->
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-light to-transparent"></div>
+        </section>
+        
+        <!-- 页面2：简介 -->
+        <section id="page2" class="relative min-h-screen w-full bg-light py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 opacity-0" id="page2-title">
+                    <h2 class="text-[clamp(1.8rem,5vw,2.5rem)] font-bold text-dark mb-4">老君山简介</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto"></div>
+                </div>
+                
+                                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div id="page2-left">
+                        <p class="text-lg mb-6 leading-relaxed opacity-0 animate-slide-up" style="animation-delay: 0.3s">
+                            老君山，本名景室山，道教主流全真派圣地，位于河南省洛阳市栾川县东南三公里处，老君山是秦岭余脉八百里伏牛山的主峰，海拔高达2200余米。
+                        </p>
+                        <p class="text-lg mb-6 leading-relaxed opacity-0 animate-slide-up" style="animation-delay: 0.6s">
+                            西周时期，因"守藏室史"李耳（著名的"老子"）到此归隐修炼，被道教尊为太上老君，唐太宗赐名为"老君山"，沿袭至今，成为道教主流全真派圣地。
+                        </p>
+                        <p class="text-lg leading-relaxed opacity-0 animate-slide-up" style="animation-delay: 0.9s">
+                            老君山有两千多年道教文化历史，北魏时在山中建庙纪念，唐贞观年间受到皇封，修建"铁顶老君庙"，明万历十九年颁赐老君山道经诏谕，封为"天下名山"。
+                        </p>
+                    </div>
+                    
+                    <div class="relative opacity-0" id="page2-right">
+                        <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                            <img src="https://img1.baidu.com/it/u=2188321861,957432576&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1200" alt="老君山金顶" class="w-full h-auto rounded-xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-6">
+                                <h3 class="text-xl font-bold text-white text-shadow">金顶道观群</h3>
+                                <p class="text-white text-shadow">老君山的标志性建筑</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 装饰元素 -->
+                        <div class="absolute -top-6 -right-6 w-32 h-32 border-4 border-primary/30 rounded-xl -z-10"></div>
+                        <div class="absolute -bottom-6 -left-6 w-32 h-32 border-4 border-secondary/30 rounded-xl -z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 页面3：景点展示 -->
+        <section id="page3" class="relative min-h-screen w-full bg-gray-50 py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 opacity-0" id="page3-title">
+                    <h2 class="text-[clamp(1.8rem,5vw,2.5rem)] font-bold text-dark mb-4">主要景点</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">探索老君山的六大核心景点，感受自然与人文的完美融合</p>
+                    <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                </div>
+                
+                <!-- 景点1：金顶道观群 -->
+                <div id="scenic1" class="scenic-spot mb-20 opacity-0" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/2 rounded-xl overflow-hidden shadow-xl">
+                            <img src="https://img2.baidu.com/it/u=2377027447,224410185&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500" alt="金顶道观群" class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold text-dark mb-4">金顶道观群</h3>
+                            <p class="text-gray-700 mb-4 leading-relaxed">
+                                老君山金顶道教建筑群依托山顶建筑，主要包括老君庙、道德府、五母金殿、亮宝台、玉皇顶、钟鼓楼、南天门、朝阳洞、大道院、神道天桥、回廊等，全部采用明清皇家宫殿式建筑形式，特别是金殿、亮宝台、玉皇顶三座金顶打造，成为老君山道观群的亮点。
+                            </p>
+                            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                <span><i class="fa fa-map-marker text-primary"></i> 位于老君山主峰顶部</span>
+                                <span>•</span>
+                                <span><i class="fa fa-star text-secondary"></i> 必游景点</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点2：十里画屏 -->
+                <div id="scenic2" class="scenic-spot mb-20 opacity-0" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                        <div class="md:w-1/2 rounded-xl overflow-hidden shadow-xl">
+                            <img src="https://img0.baidu.com/it/u=4110978961,1324675917&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=755" alt="十里画屏" class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold text-dark mb-4">十里画屏</h3>
+                            <p class="text-gray-700 mb-4 leading-relaxed">
+                                老君山十里画屏又称石林，属花岗岩峰林地貌景观，19亿年前，这里发生了震撼宇宙的大陆造山运动，使得这片原本沉睡海底的岩石，挺起了它的脊梁。经过漫长岁月的雨雪侵蚀、风化剥蚀，才形成了我们今天所看到的这鬼斧神工的壮丽景观。
+                            </p>
+                            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                <span><i class="fa fa-map-marker text-primary"></i> 位于老君山中段</span>
+                                <span>•</span>
+                                <span><i class="fa fa-camera text-secondary"></i> 摄影胜地</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点3：云景天路 -->
+                <div id="scenic3" class="scenic-spot mb-20 opacity-0" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/2 rounded-xl overflow-hidden shadow-xl">
+                            <img src="https://miaobi-lite.bj.bcebos.com/miaobi/5mao/b%27546w5Zyo6ICB5ZCb5bGxXzE3MzQ5ODc4NDcuMDc0Njc3NQ%3D%3D%27/0.png" alt="云景天路" class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold text-dark mb-4">云景天路</h3>
+                            <p class="text-gray-700 mb-4 leading-relaxed">
+                                云景天路是老君山精华攀登路段，沿途可观赏到以峰林奇观为主要特色的景观，行走其间，移步换景，景景如画，故称云景天路。此路段起于中天门，止于山顶太清观，包含了中天门、金阙云宫、菩萨殿、老君庙、道德府等道教建筑，沿途风景秀丽，是老君山景区内重要的道教文化游览线路。
+                            </p>
+                            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                <span><i class="fa fa-map-marker text-primary"></i> 连接中天门与山顶</span>
+                                <span>•</span>
+                                <span><i class="fa fa-hiking text-secondary"></i> 徒步路线</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点4：马鬃岭 -->
+                <div id="scenic4" class="scenic-spot mb-20 opacity-0" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                        <div class="md:w-1/2 rounded-xl overflow-hidden shadow-xl">
+                            <img src="https://img2.baidu.com/it/u=198350054,878338378&fm=253&fmt=auto?w=1200&h=800" alt="马鬃岭" class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold text-dark mb-4">马鬃岭</h3>
+                            <p class="text-gray-700 mb-4 leading-relaxed">
+                                马鬃岭是老君山的最高峰，海拔2217米，是观赏老君山全景和日出日亮的绝佳位置。这里的山形似马鬃，故名马鬃岭。站在山顶，极目远眺，可看到连绵起伏的群山、茂密的森林和云海奇观，令人心旷神怡，是老君山不可错过的景点之一。
+                            </p>
+                            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                <span><i class="fa fa-map-marker text-primary"></i> 老君山最高峰</span>
+                                <span>•</span>
+                                <span><i class="fa fa-sun-o text-secondary"></i> 观日出最佳点</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点5：舍身崖 -->
+                <div id="scenic5" class="scenic-spot mb-20 opacity-0" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/2 rounded-xl overflow-hidden shadow-xl">
+                            <img src="https://bkimg.cdn.bcebos.com/pic/a1ec08fa513d269759eea1bd28b3a5fb43166c2272b0" alt="舍身崖" class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold text-dark mb-4">舍身崖</h3>
+                            <p class="text-gray-700 mb-4 leading-relaxed">
+                                舍身崖是老君山一处充满传奇色彩的景点，这里三面悬空，地势险要。相传古代有一位孝子，为了救治病重的母亲，甘愿舍身跳崖，祈求神灵保佑。他的孝心感动了天地，母亲得以康复，舍身崖也因此得名。如今，舍身崖成为游客感受自然壮美和聆听传奇故事的好去处。
+                            </p>
+                            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                <span><i class="fa fa-map-marker text-primary"></i> 位于老君山西侧</span>
+                                <span>•</span>
+                                <span><i class="fa fa-compass text-secondary"></i> 观云海最佳点</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点6：峰林烟岚 -->
+                <div id="scenic6" class="scenic-spot mb-20 opacity-0" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                        <div class="md:w-1/2 rounded-xl overflow-hidden shadow-xl">
+                            <img src="https://q9.itc.cn/q_70/images03/20240518/7d8e90bea0844009a641b96275eafb88.jpeg" alt="峰林烟岚" class="w-full h-auto transform hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-bold text-dark mb-4">峰林烟岚</h3>
+                            <p class="text-gray-700 mb-4 leading-relaxed">
+                                峰林烟岚是老君山最具代表性的自然景观之一，这里的山峰形态各异，有的如利剑直插云霄，有的如仙女亭亭玉立，有的如老人默默守望。每当云雾缭绕时，峰林在云雾中若隐若现，宛如仙境一般，故得名"峰林烟岚"。游客可以在这里欣赏到大自然的鬼斧神工，感受山水的神奇与美妙。
+                            </p>
+                            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                                <span><i class="fa fa-map-marker text-primary"></i> 遍布老君山景区</span>
+                                <span>•</span>
+                                <span><i class="fa fa-cloud text-secondary"></i> 云雾景观</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 页面4：照片墙 -->
+        <section id="page4" class="relative min-h-screen w-full bg-dark py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 opacity-0" id="page4-title">
+                    <h2 class="text-[clamp(1.8rem,5vw,2.5rem)] font-bold text-white mb-4">美景欣赏</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto">点击照片，聆听老君山的声音</p>
+                    <div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
+                </div>
+                
+                <div class="photo-item overflow-hidden rounded-lg cursor-pointer relative group" data-audio="http://music.163.com/song/media/outer/url?id=1886200116.mp3">
+                    <img src="https://img2.baidu.com/it/u=4258928721,2912599592&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=653" alt="老君山云海" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <h3 class="text-white font-bold text-xl mb-2">云海奇观</h3>
+                            <p class="text-gray-300 text-sm">点击聆听山间风声</p>
+                            <i class="fa fa-play-circle text-white text-3xl mt-2"></i>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="photo-item overflow-hidden rounded-lg cursor-pointer relative group" data-audio="http://music.163.com/song/media/outer/url?id=5254640.mp3">
+                        <img src="https://img0.baidu.com/it/u=2298344026,3667312571&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1067" alt="金顶道观" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <h3 class="text-white font-bold text-xl mb-2">金顶道观</h3>
+                                <p class="text-gray-300 text-sm">点击聆听钟声</p>
+                                <i class="fa fa-play-circle text-white text-3xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="photo-item overflow-hidden rounded-lg cursor-pointer relative group" data-audio="http://music.163.com/song/media/outer/url?id=563618633.mp3">
+                        <img src="https://img0.baidu.com/it/u=2672568812,2822533218&fm=253&fmt=auto&app=120&f=JPEG?w=281&h=499" alt="山间步道" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <h3 class="text-white font-bold text-xl mb-2">山间步道</h3>
+                                <p class="text-gray-300 text-sm">点击聆听脚步声</p>
+                                <i class="fa fa-play-circle text-white text-3xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="photo-item overflow-hidden rounded-lg cursor-pointer relative group" data-audio="http://music.163.com/song/media/outer/url?id=5268746.mp3">
+                        <img src="https://p5.itc.cn/q_70/images01/20230919/65e034aff15b4ded865da7f494b21554.jpeg" alt="日出东方" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <h3 class="text-white font-bold text-xl mb-2">日出东方</h3>
+                                <p class="text-gray-300 text-sm">点击聆听鸟鸣</p>
+                                <i class="fa fa-play-circle text-white text-3xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="photo-item overflow-hidden rounded-lg cursor-pointer relative group" data-audio="http://music.163.com/song/media/outer/url?id=1899244883.mp3">
+                        <img src="https://pic.rmb.bdstatic.com/bjh/bb85c7dd8a7/241106/497a4372255b2313fd22ad277ba79fa7.jpeg" alt="秋日山林" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <h3 class="text-white font-bold text-xl mb-2">秋日山林</h3>
+                                <p class="text-gray-300 text-sm">点击聆听落叶声</p>
+                                <i class="fa fa-play-circle text-white text-3xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="photo-item overflow-hidden rounded-lg cursor-pointer relative group" data-audio="http://music.163.com/song/media/outer/url?id=1387101386.mp3">
+                        <img src="https://img0.baidu.com/it/u=4101004662,3917672783&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1247" alt="冬季雪景" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <h3 class="text-white font-bold text-xl mb-2">冬季雪景</h3>
+                                <p class="text-gray-300 text-sm">点击聆听风雪声</p>
+                                <i class="fa fa-play-circle text-white text-3xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 页面5：旅游攻略 -->
+        <section id="page5" class="relative min-h-screen w-full bg-light py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 opacity-0" id="page5-title">
+                    <h2 class="text-[clamp(1.8rem,5vw,2.5rem)] font-bold text-dark mb-4">旅游攻略</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">为你的老君山之旅提供实用指南</p>
+                    <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl opacity-0" id="guide1">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa fa-calendar text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-4">最佳旅游时间</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>春秋季（4-5月、9-10月）：天气宜人，山花烂漫或秋高气爽</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>夏季（6-8月）：避暑胜地，山间凉爽舒适</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>冬季（12-2月）：银装素裹，雾凇雪景绝美</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>观日出：建议提前一晚住宿，凌晨前往山顶</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl opacity-0" id="guide2">
+                        <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa fa-map-signs text-secondary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-4">交通指南</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>飞机：最近的机场为洛阳北郊机场，约150公里</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>火车：洛阳龙门站或洛阳站，转乘大巴至栾川县</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>景区交通：景区内有观光车，可到达主要景点</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>索道：中灵索道、云景索道，可节省体力</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl opacity-0" id="guide3">
+                        <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa fa-info-circle text-forest text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-4">注意事项</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-forest mt-1 mr-2"></i>
+                                <span>山顶气温较低，需携带保暖衣物</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-forest mt-1 mr-2"></i>
+                                <span>徒步路线较长，建议穿着舒适的鞋子</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-forest mt-1 mr-2"></i>
+                                <span>景区内部分路段较陡峭，需注意安全</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-forest mt-1 mr-2"></i>
+                                <span>尊重当地宗教习俗，爱护自然环境</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 页脚 -->
+        <footer class="bg-dark text-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">河南老君山</h3>
+                        <p class="text-gray-400 mb-4">天下无双圣境，世界第一仙山</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fa fa-weixin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fa fa-weibo text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fa fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                <i class="fa fa-youtube-play text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">快速链接</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#page1" class="text-gray-400 hover:text-white transition-colors duration-300">首页</a></li>
+                            <li><a href="#page2" class="text-gray-400 hover:text-white transition-colors duration-300">景区简介</a></li>
+                            <li><a href="#page3" class="text-gray-400 hover:text-white transition-colors duration-300">景点介绍</a></li>
+                            <li><a href="#page4" class="text-gray-400 hover:text-white transition-colors duration-300">美景欣赏</a></li>
+                            <li><a href="#page5" class="text-gray-400 hover:text-white transition-colors duration-300">旅游攻略</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">联系我们</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fa fa-map-marker text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-400">河南省洛阳市栾川县老君山景区</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-phone text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-400">0379-66838888</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-envelope text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-400">laojunshan@tourism.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
+                    <p>© 2025 河南老君山景区. 保留所有权利.</p>
+                </div>
+            </div>
+        </footer>
     </div>
-  </section>
+    
+    <!-- 照片模态框 -->
+    <div id="photoModal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="closeModal" class="absolute top-6 right-6 text-white text-3xl">
+            <i class="fa fa-times"></i>
+        </button>
+        
+        <div class="max-w-4xl mx-auto p-4">
+            <img id="modalImage" src="" alt="大图预览" class="max-h-[80vh] mx-auto">
+            <h3 id="modalTitle" class="text-white text-xl font-bold mt-4 text-center"></h3>
+            <p id="modalDesc" class="text-gray-300 text-center"></p>
+        </div>
+    </div>
+    
+    <script>
+         document.addEventListener('DOMContentLoaded', () => {
+  const windSound  = document.getElementById('windSound');
+  const bgMusic    = document.getElementById('bgMusic');
+  const photoItems = document.querySelectorAll('.photo-item');
+  const photoModal = document.getElementById('photoModal');
+  const closeModal = document.getElementById('closeModal');
 
-  <!-- 风光图集展示 -->
-  <section id="scenery" class="relative w-full h-screen flex items-center justify-center bg-light overflow-hidden">
-    <div class="container mx-auto px-4 z-20">
-      <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-dark mb-8 text-center slide-up">
-        <span class="text-primary">自然风光</span>
-      </h2>
-      
-      <div class="swiper-container rounded-xl overflow-hidden shadow-2xl scale-in" style="animation-delay: 0.3s;">
-        <div class="swiper-wrapper">
-          <!-- 幻灯片1 -->
-          <div class="swiper-slide relative">
-            <img src="https://img1.baidu.com/it/u=122165407,1581550733&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1067" alt="云台山风景" class="w-full h-[70vh] object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-              <h3 class="text-white text-2xl font-bold mb-2">云台山</h3>
-              <p class="text-white/90">云台山以其壮观的峡谷、瀑布和清澈的溪流而闻名，是国家5A级旅游景区。</p>
-            </div>
-          </div>
-          
-          <!-- 幻灯片2 -->
-          <div class="swiper-slide relative">
-            <img src="https://img2.baidu.com/it/u=157300663,447878870&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1066" alt="嵩山风景" class="w-full h-[70vh] object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-              <h3 class="text-white text-2xl font-bold mb-2">嵩山</h3>
-              <p class="text-white/90">嵩山是五岳之一，以少林寺和中岳庙而闻名于世，是中国佛教禅宗和武术的发源地。</p>
-            </div>
-          </div>
-          
-          <!-- 幻灯片3 -->
-          <div class="swiper-slide relative">
-            <img src="https://img2.baidu.com/it/u=447469703,352046450&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1146" alt="龙门石窟" class="w-full h-[70vh] object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-              <h3 class="text-white text-2xl font-bold mb-2">龙门石窟</h3>
-              <p class="text-white/90">龙门石窟是中国四大石窟之一，拥有大量的佛像和浮雕，展现了中国古代雕刻艺术的卓越成就。</p>
-            </div>
-          </div>
-          
-          <!-- 幻灯片4 -->
-          <div class="swiper-slide relative">
-            <img src="https://picsum.photos/id/1039/1200/800" alt="黄河风景" class="w-full h-[70vh] object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-              <h3 class="text-white text-2xl font-bold mb-2">黄河风景区</h3>
-              <p class="text-white/90">黄河是中华民族的母亲河，河南黄河风景区展示了黄河壮丽的景色和丰富的历史文化。</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 分页器 -->
-        <div class="swiper-pagination"></div>
-        
-        <!-- 导航按钮 -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 人文风情介绍 -->
-  <section id="culture" class="relative w-full h-screen flex items-center justify-center bg-dark overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="https://picsum.photos/id/1035/1200/800" alt="河南人文" class="w-full h-full object-cover opacity-30">
-    </div>
-    
-    <div class="container mx-auto px-4 z-20">
-      <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white text-shadow mb-12 text-center slide-up">
-        <span class="text-primary">人文风情</span>
-      </h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- 节庆活动 -->
-        <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-xl transform transition-all duration-500 hover:scale-105 scale-in" style="animation-delay: 0.3s;">
-          <div class="text-primary text-4xl mb-4">
-            <i class="fa fa-calendar"></i>
-          </div>
-          <h3 class="text-white text-xl font-bold mb-4">传统节庆</h3>
-          <p class="text-white/80 mb-4">
-            河南拥有丰富的传统节庆活动，如洛阳牡丹花会、开封菊花展、郑州黄帝故里拜祖大典等。
-          </p>
-          <div class="relative rounded-lg overflow-hidden h-48 mb-4">
-            <img src="https://img1.baidu.com/it/u=114022007,4213642249&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1067" alt="洛阳牡丹花会" class="w-full h-full object-cover">
-          </div>
-          <p class="text-white/80">
-            洛阳牡丹花会每年4月举办，展示了各种珍贵的牡丹品种，吸引了来自世界各地的游客。
-          </p>
-        </div>
-        
-        <!-- 美食文化 -->
-        <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-xl transform transition-all duration-500 hover:scale-105 scale-in" style="animation-delay: 0.6s;">
-          <div class="text-primary text-4xl mb-4">
-            <i class="fa fa-cutlery"></i>
-          </div>
-          <h3 class="text-white text-xl font-bold mb-4">美食文化</h3>
-          <p class="text-white/80 mb-4">
-            河南美食历史悠久，特色鲜明，有烩面、胡辣汤、洛阳水席、开封灌汤包等著名小吃。
-          </p>
-          <div class="relative rounded-lg overflow-hidden h-48 mb-4">
-            <img src="https://miaobi-lite.bj.bcebos.com/miaobi/5mao/b%275Lqz5bee576O6aOf5o6S6KGM5qac5YmN5Y2B5ZCNXzE3MzU1NzY1MTcuMDYxNjY5%27/0.png" alt="河南美食" class="w-full h-full object-cover">
-          </div>
-          <p class="text-white/80">
-            郑州烩面是河南的代表性美食之一，以其筋道的面条和鲜美的汤头而闻名。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 结尾页 -->
-  <section id="ending" class="relative w-full h-screen flex items-center justify-center bg-primary overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="https://picsum.photos/id/1037/1200/800" alt="感谢观赏" class="w-full h-full object-cover opacity-20">
-    </div>
-    
-    <div class="container mx-auto px-4 z-20 text-center">
-      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl max-w-2xl mx-auto">
-        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white text-shadow mb-8 slide-up">
-          感谢您的观赏
-        </h2>
-        
-        <p class="text-white/90 text-lg md:text-xl mb-8 leading-relaxed slide-up" style="animation-delay: 0.3s;">
-          希望您通过这个H5页面，对河南有了更深入的了解和认识。欢迎您来河南旅游，亲身感受这片土地的魅力！
-        </p>
-        
-        <div class="flex justify-center mb-8 scale-in" style="animation-delay: 0.6s;">
-          <div class="bg-white p-4 rounded-lg shadow-lg">
-            <img src="https://picsum.photos/id/1001/200/200" alt="联系二维码" class="w-48 h-48">
-            <p class="mt-2 text-dark font-bold">扫码关注河南旅游</p>
-          </div>
-        </div>
-        
-        <div class="flex justify-center space-x-6 slide-up" style="animation-delay: 0.9s;">
-          <a href="#cover" class="inline-block px-6 py-3 bg-white text-primary font-bold rounded-full shadow-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105">
-            返回顶部
-          </a>
-          <a href="#" class="inline-block px-6 py-3 bg-dark text-white font-bold rounded-full shadow-lg hover:bg-dark/90 transition-all duration-300 transform hover:scale-105">
-            分享给朋友
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="absolute bottom-4 left-0 right-0 text-center text-white/70 text-sm">
-      <p>© 2025 河南旅游推荐 | 设计制作</p>
-    </div>
-  </section>
-
-  <script>
-    // 打字机效果
-    const typingText = document.getElementById('typing-text');
-    const textToType = "欢迎来到我的家乡——河南，一个充满历史韵味与自然风光的地方。河南位于中国中部，是中华文明的重要发源地，历史悠久，文化灿烂。拥有洛阳、开封等古都，孕育了黄河文明，是中国农业和人口大省，交通便利，区位优势明显。";
-    let index = 0;
-    
-    function typeWriter() {
-      if (index < textToType.length) {
-        typingText.textContent += textToType.charAt(index);
-        index++;
-        setTimeout(typeWriter, 100);
-      } else {
-        // 移除光标
-        setTimeout(() => {
-          typingText.querySelector('.typing-cursor').style.display = 'none';
-        }, 500);
-      }
-    }
-    
-    // 等待页面加载完成后开始打字机效果
-    window.addEventListener('load', () => {
-      setTimeout(typeWriter, 1500);
-    });
-    
-    // 音频控制
-    const audioControl = document.getElementById('audio-control');
-    const audioIcon = document.getElementById('audio-icon');
-    const bgMusic = document.getElementById('bg-music');
-    
-    audioControl.addEventListener('click', () => {
-      if (bgMusic.paused) {
-        bgMusic.play();
-        audioIcon.classList.remove('fa-music');
-        audioIcon.classList.add('fa-volume-up');
-        audioControl.classList.add('animate-spin');
-      } else {
+  // 点击照片：先暂停 bgMusic，再切换并播放风声，最后打开 modal
+  photoItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // 1) 暂停背景音乐（如果在播）
+      if (!bgMusic.paused) {
         bgMusic.pause();
-        audioIcon.classList.remove('fa-volume-up');
-        audioIcon.classList.add('fa-music');
-        audioControl.classList.remove('animate-spin');
       }
-    });
-    
-    // 自动播放背景音乐（某些浏览器可能会阻止自动播放）
-    window.addEventListener('load', () => {
-      bgMusic.play().catch(e => {
-        console.log('背景音乐自动播放被浏览器阻止:', e);
+      // 2) 切换到当前元素的音源并播放风声
+      const url = item.dataset.audio;
+      windSound.src = url;
+      windSound.currentTime = 0;
+      windSound.play().catch(() => {
+        alert('播放失败，请先与页面互动');
       });
+      // 3) 打开 modal
+      photoModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
     });
-    
-    // 页面滚动时添加导航指示器的活动状态
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section');
-      const navLinks = document.querySelectorAll('.fixed.right-4 a');
-      
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-          current = section.getAttribute('id');
-        }
-      });
-      
-      navLinks.forEach(link => {
-        link.classList.remove('bg-primary');
-        link.classList.add('bg-white/50');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.remove('bg-white/50');
-          link.classList.add('bg-primary');
-        }
-      });
-    });
-    
-    // 初始化Swiper
-    const swiper = new Swiper('.swiper-container', {
-      // 配置选项
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true
-      },
-      speed: 1000,
-    });
-    
-    // 添加滚动动画
-    const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.slide-up, .scale-in, .fade-in');
-      
-      elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0) scale(1)';
-        }
-      });
-    };
-    
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-  </script>
+  });
+
+  // 退出预览：暂停风声，关闭 modal
+  function closePreview() {
+    windSound.pause();
+    photoModal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
+  }
+
+  closeModal.addEventListener('click', closePreview);
+  photoModal.addEventListener('click', e => {
+    if (e.target === photoModal) closePreview();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closePreview();
+  });
+});
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化变量
+            const pages = document.querySelectorAll('section[id^="page"]');
+            const nextPageBtn = document.getElementById('nextPage');
+            const enterBtn = document.getElementById('enterBtn');
+            const menuBtn = document.getElementById('menuBtn');
+            const closeMenuBtn = document.getElementById('closeMenu');
+            const subMenu = document.getElementById('subMenu');
+            const mainNav = document.getElementById('mainNav');
+            const musicToggle = document.getElementById('musicToggle');
+            const bgMusic = document.getElementById('bgMusic');
+            const photoItems = document.querySelectorAll('.photo-item');
+            const photoModal = document.getElementById('photoModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            const closeModal = document.getElementById('closeModal');
+            let currentPage = 0;
+            let musicPlaying = false;
+            
+            // 页面滚动动画
+            const animateOnScroll = () => {
+                const scrollY = window.scrollY;
+                
+                // 导航栏滚动效果
+                if (scrollY > 100) {
+                    mainNav.classList.add('bg-dark/90', 'shadow-lg');
+                    mainNav.classList.remove('bg-transparent');
+                } else {
+                    mainNav.classList.remove('bg-dark/90', 'shadow-lg');
+                    mainNav.classList.add('bg-transparent');
+                }
+                
+                // 检测各页面是否进入视口并添加动画
+                const pageElements = [
+                    document.getElementById('page2-title'),
+                    document.getElementById('page2-left'),
+                    document.getElementById('page2-right'),
+                    document.getElementById('page3-title'),
+                    ...document.querySelectorAll('.scenic-spot'),
+                    document.getElementById('page4-title'),
+                    document.getElementById('photoGrid'),
+                    document.getElementById('page5-title'),
+                    document.getElementById('guide1'),
+                    document.getElementById('guide2'),
+                    document.getElementById('guide3')
+                ];
+                
+                pageElements.forEach(el => {
+                    if (el) {
+                        const elementTop = el.getBoundingClientRect().top;
+                        const elementVisible = 150;
+                        
+                        if (elementTop < window.innerHeight - elementVisible) {
+                            el.classList.add('animate-fade-in');
+                            el.style.opacity = 1;
+                        }
+                    }
+                });
+            };
+            
+            // 平滑滚动到指定页面
+            const scrollToPage = (pageIndex) => {
+                if (pageIndex >= 0 && pageIndex < pages.length) {
+                    pages[pageIndex].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    currentPage = pageIndex;
+                }
+            };
+            
+            // 下一页按钮事件
+            nextPageBtn.addEventListener('click', () => {
+                scrollToPage(currentPage + 1);
+            });
+            
+            // 开始探索按钮事件
+            enterBtn.addEventListener('click', () => {
+                scrollToPage(1);
+            });
+            
+            // 菜单按钮事件
+            menuBtn.addEventListener('click', () => {
+                subMenu.classList.remove('translate-x-full');
+                subMenu.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // 关闭菜单按钮事件
+            closeMenuBtn.addEventListener('click', () => {
+                subMenu.classList.add('translate-x-full');
+                subMenu.classList.remove('translate-x-0');
+                document.body.style.overflow = '';
+            });
+            
+            // 二级菜单链接事件
+            document.querySelectorAll('.scenic-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // 关闭菜单
+                        subMenu.classList.add('translate-x-full');
+                        subMenu.classList.remove('translate-x-0');
+                        document.body.style.overflow = '';
+                        
+                        // 滚动到目标位置
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }, 300);
+                    }
+                });
+            });
+            
+            // 音乐控制
+            musicToggle.addEventListener('click', () => {
+                if (musicPlaying) {
+                    bgMusic.pause();
+                    musicToggle.innerHTML = '<i class="fa fa-music"></i>';
+                    musicToggle.classList.remove('animate-spin');
+                } else {
+                    bgMusic.play();
+                    musicToggle.innerHTML = '<i class="fa fa-pause"></i>';
+                    musicToggle.classList.add('animate-spin');
+                }
+                musicPlaying = !musicPlaying;
+            });
+            
+            // 照片点击事件
+            photoItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    const title = item.querySelector('h3').textContent;
+                    const desc = item.querySelector('p').textContent;
+                    
+                    modalImage.src = img.src;
+                    modalTitle.textContent = title;
+                    modalDesc.textContent = desc;
+                    
+                    photoModal.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // 播放背景音乐
+                    bgMusic.src = `https://music.163.com/song/media/outer/url?id=${508612181 + index}.mp3`;
+                    bgMusic.play();
+                    musicPlaying = true;
+                    musicToggle.innerHTML = '<i class="fa fa-pause"></i>';
+                    musicToggle.classList.add('animate-spin');
+                });
+            });
+            
+            // 关闭模态框
+            closeModal.addEventListener('click', () => {
+                photoModal.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            });
+            
+            // 点击模态框背景关闭
+            photoModal.addEventListener('click', (e) => {
+                if (e.target === photoModal) {
+                    photoModal.classList.add('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = '';
+                }
+            });
+            //音乐
+            
+            // 键盘事件
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    photoModal.classList.add('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = '';
+                } else if (e.key === 'ArrowRight') {
+                    scrollToPage(currentPage + 1);
+                } else if (e.key === 'ArrowLeft') {
+                    scrollToPage(currentPage - 1);
+                }
+            });
+            
+            // 初始化页面动画
+            animateOnScroll();
+            
+            // 监听滚动事件
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // 初始化视差效果
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            window.addEventListener('scroll', () => {
+                parallaxElements.forEach(element => {
+                    const scrollPosition = window.pageYOffset;
+                    element.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+                });
+            });
+        });
+
+    </script>
 </body>
 </html>
     
